@@ -1,3 +1,4 @@
 environments:
+    ignore_database_adapter_warning: true
   streaming_data_collector:
     ignore_database_adapter_warning: true
