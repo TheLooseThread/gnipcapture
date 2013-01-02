@@ -5,7 +5,8 @@ class ControlController < ApplicationController
 		status = ""
 
 		if params.has_key?(:capturestatus)
-			latest = Dir.entries("/home/deploy/gnip/streaming").map{|f| File.mtime(f)}.max
+			path = "/home/deploy/gnip/streaming"
+			latest = Dir.entries(path).map{|f| File.mtime(path + "/" + f)}.max
 			status = "Most recent capture time is #{Time.now-latest} seconds old\n\n"
 			if latest and Time.now - latest < 5*60
 				status << "Capture OK\n"
